@@ -1,0 +1,53 @@
+{
+  "name": "zanzibar-tourism-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@hookform/resolvers": "3.0.0",
+    "@radix-ui/react-checkbox": "^1.0.0",
+    "@radix-ui/react-dialog": "^1.0.0",
+    "@radix-ui/react-dropdown-menu": "^1.0.0",
+    "@radix-ui/react-label": "^1.0.0",
+    "@radix-ui/react-tooltip": "^1.0.0",
+    "@tanstack/react-query": "^4.0.0",
+    "axios": "^1.10.0",
+    "class-variance-authority": "^0.5.0",
+    "clsx": "^1.2.1",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^0.264.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.0",
+    "react-icons": "^5.5.0",
+    "react-leaflet": "^4.2.1",
+    "react-modal": "^3.16.3",
+    "react-router-dom": "^7.6.2",
+    "react-toastify": "^11.0.5",
+    "sweetalert2": "^11.22.1",
+    "tailwind-merge": "^1.14.0",
+    "web-vitals": "^2.1.4",
+    "webpack-dev-server": "^5.2.2",
+    "zod": "3.22.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "react-scripts": "^5.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

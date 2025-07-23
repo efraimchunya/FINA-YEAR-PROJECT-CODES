@@ -1,0 +1,66 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #2e3b4e;
+    color: white;
+  }
+  
+  .navbar .navbar-left .navbar-brand {
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .navbar .navbar-right a, .navbar .navbar-right button {
+    text-decoration: none;
+    color: white;
+    margin-left: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .navbar .navbar-right button:hover,
+  .navbar .navbar-right a:hover {
+    color: #cfcfcf;
+  }
+  
+  /* Home Page */
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .map-notifications-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .home-footer {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .home-footer .auth-links {
+    margin-top: 10px;
+  }
+  
+  .home-footer .auth-links a {
+    text-decoration: none;
+    color: #007bff;
+    margin: 0 10px;
+  }
+  
+  .home-footer .auth-links a:hover {
+    text-decoration: underline;
+  }
+  

@@ -1,0 +1,73 @@
+/* app.css */
+
+/* Main container layout */
+.app-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fafb;
+}
+
+/* Admin panel styling */
+.admin-panel {
+  width: 320px;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
+  overflow-y: auto;
+  z-index: 10;
+  border-right: 1px solid #e5e7eb;
+}
+
+/* Admin panel header */
+.admin-panel h2 {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 20px;
+}
+
+/* Map panel styling */
+.map-panel {
+  flex-grow: 1;
+  position: relative;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Leaflet map styling */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  border-radius: 0;
+}
+
+/* Ensure full screen map container when needed */
+#map {
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .admin-panel {
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .map-panel {
+    height: calc(100vh - 200px); /* Adjust if admin panel height varies */
+  }
+}

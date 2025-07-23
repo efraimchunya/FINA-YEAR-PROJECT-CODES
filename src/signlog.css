@@ -1,0 +1,134 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f0f4f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Form Container */
+  .signup-container,
+  .login-container {
+    background: linear-gradient(to bottom right, #4e73df, #1e3d58);
+    padding: 40px 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    width: 100%;
+    color: #fff;
+    box-sizing: border-box;
+  }
+  
+  .signup-heading,
+  .login-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-top: 8px;
+    background-color: #fff;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  .form-input:focus {
+    border-color: #4e73df;
+    box-shadow: 0 0 5px rgba(78, 115, 223, 0.5);
+    outline: none;
+  }
+  
+  .error-message {
+    color: #ff4d4f;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .form-actions {
+    margin-top: 20px;
+  }
+  
+  .form-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4e73df;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-button:hover {
+    background-color: #2e59d9;
+  }
+  
+  .signup-link,
+  .login-link {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .link {
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .link:hover {
+    color: #4e73df;
+    text-decoration: underline;
+  }
+  
+  /* Animations */
+  @keyframes slideInFromTop {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .signup-container,
+  .login-container {
+    animation: slideInFromTop 0.6s ease-out;
+  }
+  
