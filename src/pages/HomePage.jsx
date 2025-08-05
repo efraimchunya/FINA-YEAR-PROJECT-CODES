@@ -74,53 +74,57 @@ export default function HomePage() {
   return (
     <div className={darkMode ? "dark" : ""}>
       <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500">
-        
+
         {/* Header */}
-        <header className="flex justify-between items-center p-6 max-w-7xl mx-auto">
-          {/* Logo and Title */}
-          <Link to="/" className="flex items-center space-x-3">
-            <img
-              src="/icons/img/zanzibar-logo.png"
-              alt="Zanzibar Tourism Logo"
-              className="h-10 w-10 object-contain"
-            />
-            <span className="text-2xl font-bold tracking-tight">
-              Zanzibar Tourism
-            </span>
-          </Link>
-
-          {/* Buttons */}
-          <div className="flex items-center space-x-4">
-            <button
-              onClick={toggleDarkMode}
-              className="text-xl p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-              aria-label="Toggle Dark Mode"
-              title={darkMode ? "Light Mode" : "Dark Mode"}
-            >
-              {darkMode ? "🌞" : "🌙"}
-            </button>
-
-            <Link
-              to="/login"
-              className="px-4 py-2 rounded bg-blue-600 hover:bg-blue-700 transition"
-            >
-              Login
+        <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md px-4">
+          <div className="flex justify-between items-center max-w-7xl mx-auto py-4">
+            {/* Logo and Title */}
+            <Link to="/" className="flex items-center space-x-4">
+              <img
+                src="/icons/img/zanzibar-logo.png"
+                alt="Zanzibar Tourism Logo"
+                className="h-24 w-24 object-contain rounded-full border-4 border-blue-500"
+              />
+              <span className="text-2xl md:text-3xl font-bold tracking-tight">
+                Zanzibar Tourism
+              </span>
             </Link>
-            <Link
-              to="/signup"
-              className="px-4 py-2 rounded border border-blue-600 hover:bg-blue-600 hover:text-white transition"
-            >
-              Signup
-            </Link>
+
+            {/* Buttons */}
+            <div className="flex items-center space-x-4">
+              <button
+                onClick={toggleDarkMode}
+                className="text-xl p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+                aria-label="Toggle Dark Mode"
+                title={darkMode ? "Light Mode" : "Dark Mode"}
+              >
+                {darkMode ? "🌞" : "🌙"}
+              </button>
+
+              <Link
+                to="/login"
+                className="px-4 md:px-6 py-2 rounded bg-blue-600 hover:bg-blue-700 transition text-sm md:text-base"
+              >
+                Login
+              </Link>
+              <Link
+                to="/signup"
+                className="px-4 md:px-6 py-2 rounded border border-blue-600 hover:bg-blue-600 hover:text-white transition text-sm md:text-base"
+              >
+                Signup
+              </Link>
+            </div>
           </div>
         </header>
 
         {/* Main Content */}
-        <main className="max-w-7xl mx-auto px-6 py-12 space-y-12">
-          
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12 space-y-16">
+
           {/* Attractions Slider */}
           <section>
-            <h2 className="text-2xl font-semibold mb-4">Discover Attractions</h2>
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-center md:text-left">
+              Discover Attractions
+            </h2>
             <div
               className="relative overflow-hidden rounded-lg shadow-md select-none"
               onMouseEnter={() => setIsPaused(true)}
@@ -143,9 +147,15 @@ export default function HomePage() {
                     className="w-full h-72 object-cover rounded-t-lg"
                     loading="lazy"
                   />
-                  <div className="p-4 bg-white dark:bg-gray-800 rounded-b-lg">
+                  <div className="p-4 bg-white dark:bg-gray-800 rounded-b-lg text-center md:text-left">
                     <h3 className="font-semibold text-lg">{attraction.name}</h3>
                     <p className="mt-1 text-sm">{attraction.description}</p>
+                    <Link
+                      to="#"
+                      className="mt-2 inline-block text-blue-600 hover:underline text-sm"
+                    >
+                      More Info →
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -153,24 +163,38 @@ export default function HomePage() {
               {/* Navigation Arrows */}
               <button
                 onClick={goToPrevious}
-                className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2 hover:bg-opacity-70 transition focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2 hover:bg-opacity-70 transition focus:outline-none"
                 aria-label="Previous Slide"
               >
                 &#10094;
               </button>
               <button
                 onClick={goToNext}
-                className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2 hover:bg-opacity-70 transition focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2 hover:bg-opacity-70 transition focus:outline-none"
                 aria-label="Next Slide"
               >
                 &#10095;
               </button>
+
+              {/* Slide Dots */}
+              <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                {attractions.map((_, idx) => (
+                  <div
+                    key={idx}
+                    className={`h-2 w-2 rounded-full ${
+                      idx === currentIndex ? "bg-blue-500" : "bg-gray-400"
+                    }`}
+                  ></div>
+                ))}
+              </div>
             </div>
           </section>
 
           {/* Map Section */}
           <section>
-            <h2 className="text-2xl font-semibold mb-4">Explore Zanzibar Map</h2>
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-center md:text-left">
+              Explore Zanzibar Map
+            </h2>
             <div className="h-96 rounded-lg overflow-hidden shadow-lg">
               <MapContainer
                 center={[-6.1659, 39.2026]}
@@ -194,8 +218,26 @@ export default function HomePage() {
         </main>
 
         {/* Footer */}
-        <footer className="py-6 text-center text-sm text-gray-500 dark:text-gray-400">
-          © 2025 Zanzibar GIS-BASED Travel Together. All rights reserved.
+        <footer className="bg-gray-100 dark:bg-gray-800 py-10 px-4 mt-16">
+          <div className="max-w-6xl mx-auto text-center space-y-4">
+            <h4 className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+              Connect With Us
+            </h4>
+            <div className="flex justify-center space-x-6 text-blue-600 text-xl">
+              <a href="https://web.facebook.com/profile.php?id=61578887212241" aria-label="Facebook" className="hover:text-blue-800">
+                <i className="fab fa-facebook"></i>
+              </a>
+              <a href="#" aria-label="Instagram" className="hover:text-pink-600">
+                <i className="fab fa-instagram"></i>
+              </a>
+              <a href="#" aria-label="Twitter" className="hover:text-blue-400">
+                <i className="fab fa-twitter"></i>
+              </a>
+            </div>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              © 2025 Zanzibar GIS-BASED Travel Together. All rights reserved.
+            </p>
+          </div>
         </footer>
       </div>
     </div>

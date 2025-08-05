@@ -59,12 +59,19 @@ export default function AdminLogin() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-orange-100 px-4">
-      <div className="bg-white p-8 rounded-lg shadow w-full max-w-md">
+      <div className="bg-white p-8 rounded-lg shadow w-full max-w-md flex flex-col items-center">
+        {/* Logo */}
+        <img
+          src="/icons/img/zanzibar-logo.png"
+          alt="Zanzibar Logo"
+          className="w-24 h-24 mb-4 object-contain rounded-full"
+        />
+
         <h2 className="text-2xl font-bold text-center text-orange-700 mb-6">Admin Login</h2>
 
         {error && <p className="text-red-600 text-sm mb-4">{error}</p>}
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-full">
           <input
             {...register("emailOrUsername")}
             type="text"
@@ -104,7 +111,10 @@ export default function AdminLogin() {
 
         <div className="text-center text-sm mt-4 text-gray-600">
           Not an admin?{" "}
-          <span className="text-blue-600 cursor-pointer" onClick={() => navigate("/login")}>
+          <span
+            className="text-blue-600 cursor-pointer"
+            onClick={() => navigate("/login")}
+          >
             Back to User Login
           </span>
         </div>

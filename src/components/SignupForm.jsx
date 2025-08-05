@@ -49,7 +49,6 @@ export function SignupForm({ isAdminSignup = false }) {
     const { confirmPassword, ...signupData } = data;
 
     try {
-      // 1. Choose correct signup endpoint
       const signupUrl =
         signupData.role === "admin"
           ? "http://localhost:5000/api/auth/admin/signup"
@@ -64,7 +63,6 @@ export function SignupForm({ isAdminSignup = false }) {
       const resData = await res.json();
       if (!res.ok) throw new Error(resData.message || "Signup failed");
 
-      // 2. Auto-login after signup
       const loginUrl =
         signupData.role === "admin"
           ? "http://localhost:5000/api/auth/admin/login"
@@ -82,7 +80,6 @@ export function SignupForm({ isAdminSignup = false }) {
       const loginResult = await loginRes.json();
       if (!loginRes.ok) throw new Error(loginResult.message || "Login failed");
 
-      // 3. Store token & redirect
       login({
         token: loginResult.token,
         role: loginResult.user.role,
@@ -115,11 +112,20 @@ export function SignupForm({ isAdminSignup = false }) {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-orange-100 px-4">
-      <div className="bg-white p-8 rounded-lg shadow w-full max-w-md">
+      <div className="bg-white p-8 rounded-lg shadow w-full max-w-md flex flex-col items-center">
+        {/* ✅ Logo */}
+        <img
+          src="/icons/img/zanzibar-logo.png"
+          alt="Zanzibar Logo"
+          className="w-24 h-24 mb-4 object-contain rounded-full"
+        />
+
         <h2 className="text-2xl font-semibold text-center text-orange-700 mb-4">Sign Up</h2>
+
         {error && <p className="text-red-600 mb-2">{error}</p>}
         {success && <p className="text-green-600 mb-2">{success}</p>}
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
+
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-full" noValidate>
           <input
             {...register("fullName")}
             placeholder="Full Name"
@@ -201,7 +207,7 @@ export function SignupForm({ isAdminSignup = false }) {
         </form>
 
         {!isAdminSignup && (
-          <p className="text-center mt-4 text-sm">
+          <p className="text-center mt-4 text-sm text-gray-600">
             Already have an account?{" "}
             <span
               className="text-blue-600 cursor-pointer"
